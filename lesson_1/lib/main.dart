@@ -4,7 +4,7 @@ import 'package:ninja_trips/screens/home.dart';
 void main() {
   runApp(MyApp());
 }
-skip
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -15,3 +15,27 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// Learned Mixins
+// A a = A();
+
+// void chain() {
+//   a.hello();
+//   a.bye();
+//   a.hi();
+// }
+// class A extends B with C {
+//   void hello() {
+//     print('Hello');
+//   }
+// }
+// class B {
+//   void bye() {
+//     print('Bye');
+//   }
+// }
+// mixin C{
+//   void hi() {
+//     print('Hi');
+//   }
+// }
