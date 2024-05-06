@@ -1,4 +1,5 @@
 import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class Heart extends StatefulWidget {
@@ -9,6 +10,7 @@ class Heart extends StatefulWidget {
 class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
   late AnimationController _animation;
   late Animation<Color?> _colorAnimation;
+  late Animation<double> _sizeAnimation;
   bool isFav = false;
   @override
   void initState() {
@@ -17,6 +19,13 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
         AnimationController(duration: Duration(milliseconds: 500), vsync: this);
     _colorAnimation = ColorTween(begin: Colors.grey[400], end: Colors.red)
         .animate(_animation);
+    _sizeAnimation = TweenSequence(<TweenSequenceItem<double>>[
+      TweenSequenceItem<double>(
+        tween: Tween(begin: 30, end: 50),
+        weight: 50,
+      ),
+      TweenSequenceItem<double>(tween: Tween(begin: 50, end: 30), weight: 50),
+    ]).animate(_animation);
     _animation.forward();
     _animation.addListener(() {
       // setState(() {});
@@ -40,6 +49,7 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
   @override
   void dispose() {
     _animation.dispose();
+
     super.dispose();
   }
 
@@ -52,7 +62,7 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
             icon: Icon(
               Icons.favorite,
               color: _colorAnimation.value ?? Colors.grey[400],
-              size: 30,
+              size: _sizeAnimation.value,
             ),
             onPressed: () {
               // if (_animation.status == AnimationStatus.completed) {
