@@ -15,8 +15,8 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _animation =
-        AnimationController(duration: Duration(milliseconds: 500), vsync: this);
+    _animation = AnimationController(
+        duration: Duration(milliseconds: 1500), vsync: this);
     _colorAnimation = ColorTween(begin: Colors.grey[400], end: Colors.red)
         .animate(_animation);
     _sizeAnimation = TweenSequence(<TweenSequenceItem<double>>[
@@ -24,7 +24,21 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
         tween: Tween(begin: 30, end: 50),
         weight: 50,
       ),
-      TweenSequenceItem<double>(tween: Tween(begin: 50, end: 30), weight: 50),
+      ...List.generate(
+          10,
+          (index) => TweenSequenceItem<double>(
+                tween: Tween(
+                    begin: index % 2 == 0 ? 30 : 50,
+                    end: index % 2 == 0 ? 50 : 30),
+                weight: 50,
+              )),
+      // TweenSequenceItem<double>(tween: Tween(begin: 50, end: 30), weight: 50),
+      // TweenSequenceItem<double>(tween: Tween(begin: 30, end: 50), weight: 50),
+      // TweenSequenceItem<double>(tween: Tween(begin: 50, end: 30), weight: 50),
+      // TweenSequenceItem<double>(tween: Tween(begin: 30, end: 50), weight: 50),
+      // TweenSequenceItem<double>(tween: Tween(begin: 50, end: 30), weight: 50),
+      // TweenSequenceItem<double>(tween: Tween(begin: 30, end: 50), weight: 50),
+      // TweenSequenceItem<double>(tween: Tween(begin: 50, end: 30), weight: 50),
     ]).animate(_animation);
     _animation.forward();
     _animation.addListener(() {
