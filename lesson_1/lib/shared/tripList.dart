@@ -15,7 +15,7 @@ class _TripListState extends State<TripList> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      // _addTrips();
+      _addTrips();
     });
     // _addTrips();
   }
@@ -29,10 +29,23 @@ class _TripListState extends State<TripList> {
       Trip(title: 'Ski Adventure', price: '750', nights: '2', img: 'ski.png'),
       Trip(title: 'Space Blast', price: '600', nights: '4', img: 'space.png'),
     ];
+    Future future = Future(() {});
 
     _trips.forEach((Trip trip) {
-      _tripTiles.add(_buildTile(trip));
-      _listKey.currentState?.insertItem(_tripTiles.length - 1);
+      future = future.then(
+        (value) => Future.delayed(Durations.medium1, () {
+          _tripTiles.add(_buildTile(trip));
+          _listKey.currentState?.insertItem(_tripTiles.length - 1);
+        }),
+      );
+
+      /// This method will not work as expected because a loop cannot contain a for loop
+      /*
+      Future.delayed(Duration(milliseconds: 100), () {
+        _tripTiles.add(_buildTile(trip));
+        _listKey.currentState?.insertItem(_tripTiles.length - 1);
+      });
+      */
     });
   }
 
