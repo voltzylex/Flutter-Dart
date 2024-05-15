@@ -32,3 +32,5 @@ class RiverpodHomeScreen extends StatelessWidget {
     );
   }
 }
+// read only provider
+// future provider
