@@ -6,54 +6,52 @@ const List<Product> allProducts = [
     id: 1,
     title: 'Laptop',
     price: 1000,
-    image: 'assets/images/laptop.jpg',
+    image: 'assets/products/backpack.png',
   ),
   Product(
     id: 2,
     title: 'Smartphone',
     price: 500,
-    image: 'assets/images/smartphone.jpg',
+    image: 'assets/products/drum.png',
   ),
   Product(
     id: 3,
     title: 'Tablet',
     price: 300,
-    image: 'assets/images/tablet.jpg',
+    image: 'assets/products/guitar.png',
   ),
   Product(
     id: 4,
     title: 'Smartwatch',
     price: 200,
-    image: 'assets/images/smartwatch.jpg',
+    image: 'assets/products/jeans.png',
   ),
   Product(
     id: 5,
     title: 'Headphones',
     price: 100,
-    image: 'assets/images/headphones.jpg',
+    image: 'assets/products/karati.png',
   ),
   Product(
     id: 6,
     title: 'Camera',
     price: 800,
-
-    image: 'assets/images/camera.jpg',
+    image: 'assets/products/shorts.png',
   ),
   Product(
     id: 7,
     title: 'Printer',
     price: 200,
-    image: 'assets/images/printer.jpg',
+    image: 'assets/products/skates.png',
   ),
   Product(
     id: 8,
     title: 'Monitor',
     price: 300,
-    image: 'assets/images/monitor.jpg',
+    image: 'assets/products/suitcase.png',
   ),
 ];
 final productsProvider = Provider((ref) => allProducts);
 final reducedProductsProvider = Provider((ref) {
-
   return allProducts.where((product) => product.price < 50).toList();
 });

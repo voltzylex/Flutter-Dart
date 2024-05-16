@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_management/riverpod/screens/home/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  /// without provider scope it will not work
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -35,14 +37,17 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ElevatedButton(
-              onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const RiverpodHomeScreen(),
-                  )),
-              child: const Text("Riverpod")),
+          Center(
+            child: ElevatedButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RiverpodHomeScreen(),
+                    )),
+                child: const Text("Riverpod")),
+          ),
         ],
       ),
     );
