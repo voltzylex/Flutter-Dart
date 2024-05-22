@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:state_management/riverpod/models/product.dart';
+import 'package:state_management/riverpod/providers/cart_provider.dart';
 import 'package:state_management/riverpod/providers/products_provider.dart';
 import 'package:state_management/riverpod/shared/cart_icon.dart';
 
@@ -13,6 +13,7 @@ class RiverpodHomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final allProvider = ref.watch(productsProvider);
+    final cartProvider = ref.watch(cartNotifierProvider);
     // how to add element in allprovider list
 
     log("allProvider: called");
@@ -33,20 +34,7 @@ class RiverpodHomeScreen extends ConsumerWidget {
           ),
           itemBuilder: (context, index) {
             return CupertinoButton(
-              onPressed: () {
-                ref.read(productsProvider).add(const Product(
-                  id: 9,
-                  title: 'Mouse',
-                  price: 50,
-                  image: 'assets/products/mouse.png',
-                ),);
-                allProvider.add(const Product(
-                  id: 9,
-                  title: 'Mouse',
-                  price: 50,
-                  image: 'assets/products/mouse.png',
-                ),);
-              },
+              onPressed: () {},
               child: Container(
                 padding: const EdgeInsets.all(20),
                 color: Colors.blueGrey.withOpacity(0.05),
@@ -75,6 +63,11 @@ class RiverpodHomeScreen extends ConsumerWidget {
                         color: Colors.deepPurple,
                       ),
                     ),
+                    if (cartProvider.contains(allProvider.elementAt(index)))
+                      TextButton(onPressed: () {}, child: const Text('Remove')),
+                    if (!cartProvider.contains(allProvider.elementAt(index)))
+                      TextButton(
+                          onPressed: () {}, child: const Text('Add to cart')),
                   ],
                 ),
               ),

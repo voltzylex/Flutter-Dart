@@ -16,3 +16,7 @@ class CartNotifier extends Notifier<Set<Product>> {
     };
   }
 }
+
+final cartNotifierProvider = NotifierProvider<CartNotifier, Set<Product>>((){
+  return CartNotifier();
+});
