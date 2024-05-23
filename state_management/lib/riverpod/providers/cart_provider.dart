@@ -15,8 +15,21 @@ class CartNotifier extends Notifier<Set<Product>> {
       ),
     };
   }
+
+  // add products
+  addProducts(Product products) {
+    if (!state.contains(products)) {
+      state = {...state, products};
+    }
+  }
+
+  removeProducts(Product product) {
+    if (state.contains(product)) {
+      state = state.where((element) => element.id != product.id).toSet();
+    }
+  }
 }
 
-final cartNotifierProvider = NotifierProvider<CartNotifier, Set<Product>>((){
+final cartNotifierProvider = NotifierProvider<CartNotifier, Set<Product>>(() {
   return CartNotifier();
 });

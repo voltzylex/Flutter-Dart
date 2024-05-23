@@ -33,43 +33,51 @@ class RiverpodHomeScreen extends ConsumerWidget {
             childAspectRatio: 1,
           ),
           itemBuilder: (context, index) {
-            return CupertinoButton(
-              onPressed: () {},
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                color: Colors.blueGrey.withOpacity(0.05),
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        allProvider[index].image,
-                        fit: BoxFit.contain,
-                        // height: 80,
-                      ),
+            return Container(
+              padding: const EdgeInsets.all(20),
+              color: Colors.blueGrey.withOpacity(0.05),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Image.asset(
+                      allProvider[index].image,
+                      fit: BoxFit.contain,
+                      // height: 80,
                     ),
-                    const SizedBox(height: 10),
-                    Text(
-                      allProvider[index].title,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    allProvider[index].title,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text(
-                      '\$${allProvider[index].price}',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.deepPurple,
-                      ),
+                  ),
+                  Text(
+                    '\$${allProvider[index].price}',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.deepPurple,
                     ),
-                    if (cartProvider.contains(allProvider.elementAt(index)))
-                      TextButton(onPressed: () {}, child: const Text('Remove')),
-                    if (!cartProvider.contains(allProvider.elementAt(index)))
-                      TextButton(
-                          onPressed: () {}, child: const Text('Add to cart')),
-                  ],
-                ),
+                  ),
+                  if (cartProvider.contains(allProvider.elementAt(index)))
+                    TextButton(
+                        onPressed: () {
+                          ref
+                              .read(cartNotifierProvider.notifier)
+                              .removeProducts(allProvider.elementAt(index));
+                        },
+                        child: const Text('Remove')),
+                  if (!cartProvider.contains(allProvider.elementAt(index)))
+                    TextButton(
+                        onPressed: () {
+                          ref
+                              .read(cartNotifierProvider.notifier)
+                              .addProducts(allProvider.elementAt(index));
+                        },
+                        child: const Text('Add to cart')),
+                ],
               ),
             );
           },
