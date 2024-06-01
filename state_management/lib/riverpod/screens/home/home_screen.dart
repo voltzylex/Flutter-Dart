@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:state_management/config.dart';
 import 'package:state_management/riverpod/providers/cart_provider.dart';
 import 'package:state_management/riverpod/providers/products_provider.dart';
 import 'package:state_management/riverpod/shared/cart_icon.dart';
@@ -16,7 +17,7 @@ class RiverpodHomeScreen extends ConsumerWidget {
     final cartProvider = ref.watch(cartNotifierProvider);
     // how to add element in allprovider list
 
-    log("allProvider: called");
+    debugLog("allProvider: called",error: true);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Garage Sale Products'),
