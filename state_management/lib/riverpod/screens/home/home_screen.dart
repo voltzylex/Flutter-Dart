@@ -17,7 +17,8 @@ class RiverpodHomeScreen extends ConsumerWidget {
     final cartProvider = ref.watch(cartNotifierProvider);
     // how to add element in allprovider list
 
-    debugLog("allProvider: called",error: true);
+    // debugLog("allProvider: called",error: true);
+    prettyPrint(tag: "Product Provider", value: "Provider called",type: DebugType.info);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Garage Sale Products'),

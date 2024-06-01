@@ -4,6 +4,7 @@ import 'package:state_management/riverpod/models/product.dart';
 part 'products_provider.g.dart';
 
 const List<Product> allProducts = [
+
   Product(
     id: 1,
     title: 'Laptop',
