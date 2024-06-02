@@ -204,5 +204,13 @@
             android:text="+" />
 
     </LinearLayout>
-
+<!--Row 5-->
+    <Button
+        android:id="@+id/bEqual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:layout_weight="1"
+        android:text="="
+        />
 </LinearLayout>
