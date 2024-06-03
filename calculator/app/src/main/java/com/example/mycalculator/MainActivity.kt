@@ -3,6 +3,7 @@ package com.example.mycalculator
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,13 +29,17 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Button Clicked", Toast.LENGTH_SHORT).show()
         }
 
-        fun onDigit(){
-            Toast.makeText(this,"this is button 7",Toast.LENGTH_SHORT,).show();
-        }
+//        fun onDigit(){
+//            val tvInput: TextView = findViewById(R.id.tvInput)
+//            tvInput.setText("1");
+//            Toast.makeText(this,"this is button 7",Toast.LENGTH_SHORT,).show();
+//        }
 
     }
 
     fun onDigit(view: View) {
-        Toast.makeText(this,"this is button 7",Toast.LENGTH_SHORT,).show();
+//        Toast.makeText(this,"this is button 7",Toast.LENGTH_SHORT,).show();
+        val tvInput: TextView = findViewById(R.id.tvInput)
+        tvInput.append((view as Button).text);
     }
 }
