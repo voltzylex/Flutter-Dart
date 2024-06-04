@@ -1,11 +1,9 @@
-import 'dart:developer';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_management/config.dart';
 import 'package:state_management/riverpod/providers/cart_provider.dart';
 import 'package:state_management/riverpod/providers/products_provider.dart';
+import 'package:state_management/riverpod/screens/api/api_screen.dart';
 import 'package:state_management/riverpod/shared/cart_icon.dart';
 
 class RiverpodHomeScreen extends ConsumerWidget {
@@ -18,7 +16,10 @@ class RiverpodHomeScreen extends ConsumerWidget {
     // how to add element in allprovider list
 
     // debugLog("allProvider: called",error: true);
-    prettyPrint(tag: "Product Provider", value: "Provider called",type: DebugType.info);
+    prettyPrint(
+        tag: "Product Provider",
+        value: "Provider called",
+        type: DebugType.info);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Garage Sale Products'),
@@ -83,6 +84,18 @@ class RiverpodHomeScreen extends ConsumerWidget {
               ),
             );
           },
+        ),
+      ),
+      bottomNavigationBar: InkWell(
+        onTap: () => Navigator.push(context, ApiScreen.route),
+        child: Container(
+          height: 50,
+          color: Colors.teal,
+          alignment: Alignment.center,
+          child: const Text(
+            "Fetch Api",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
     );
