@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
@@ -23,10 +21,10 @@ class ApiScreen extends StatelessWidget {
               error: (error, stackTrace) => Text('Error: $error'),
               data: (data) {
                 return ListView.builder(
-                  itemCount: data.length,
+                  itemCount: data.body.length,
                   itemBuilder: (context, index) {
                     return ListTile(
-                      title: Text(data[index]),
+                      title: Text(data.body),
                     );
                   },
                 );
@@ -40,12 +38,12 @@ class ApiScreen extends StatelessWidget {
 }
 
 // Define a provider for fetching data
-final fetchData = FutureProvider<List<String>>((ref) async {
+final fetchData = FutureProvider<http.Response>((ref) async {
   final response =
       await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
   if (response.statusCode == 200) {
-    final List<dynamic> data = json.decode(response.body);
-    return List<String>.from(data);
+    // log("Response ${response.body}");
+    return response;
   } else {
     throw Exception('Failed to load data');
   }
