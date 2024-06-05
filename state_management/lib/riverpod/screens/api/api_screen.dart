@@ -38,7 +38,7 @@ class ApiScreen extends StatelessWidget {
 }
 
 // Define a provider for fetching data
-final fetchData = FutureProvider<http.Response>((ref) async {
+final fetchData = FutureProvider.autoDispose<http.Response>((ref) async {
   final response =
       await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
   if (response.statusCode == 200) {
