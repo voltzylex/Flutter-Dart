@@ -201,7 +201,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/button_background"
-            android:onClick="onDigit"
+            android:onClick="onClear"
             android:text="CLR" />
 
         <Button

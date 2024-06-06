@@ -42,4 +42,10 @@ class MainActivity : AppCompatActivity() {
         val tvInput: TextView = findViewById(R.id.tvInput)
         tvInput.append((view as Button).text);
     }
+    fun onClear(view: View){
+        val tvInput: TextView = findViewById(R.id.tvInput);
+        tvInput.setText("");
+    }
+
+
 }
