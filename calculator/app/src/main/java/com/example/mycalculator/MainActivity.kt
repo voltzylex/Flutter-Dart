@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         Log.d("MainActivity", "Current TextView value: ${tvInput.text} is the value is boolean ${tvInput.text.isDigitsOnly()}")
     }
 
+
     fun onClear(view: View) {
         tvInput.text = ""
         lastNumeric = false
@@ -56,6 +57,22 @@ class MainActivity : AppCompatActivity() {
             tvInput.append(".")
             lastNumeric = false
             lastDot = true
+        }
+    }
+    fun onOperator(view:View){
+        if(lastNumeric && !isOperatorAdded(tvInput.text.toString())){
+            tvInput.append((view as Button).text);
+            lastNumeric = false;
+            lastDot =false;
+        }
+    }
+
+    private fun isOperatorAdded(value:String):Boolean{
+
+        return if(value.startsWith("-")){
+            false
+        }else{
+            value.contains("/")||value.contains("+")||value.contains("-")||value.contains("*")
         }
     }
 }

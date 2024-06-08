@@ -1,0 +1,15 @@
+index.js 
+> it is the main entry point of program
+> you can change it to any name
+
+## Nodemon
+> it is used to run the code regularly depend on the change 
+> you can set it to json file for the comand to executed
+> installing command npm i Nodemon
+>  "scripts": {
+    "start":"nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  
+package.json
+>
