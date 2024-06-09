@@ -20,7 +20,10 @@ app.listen(port, hostname, (err) => {
 // get
 // Create a GET endpoint
 app.get('/', (req, res) => {
-    res.send("Hello world");
+    // res.send('<h1>Welcome to learning node js with sushil</h1>');
+    // res.send('<h2>Welcome to learning node js with sushil</h1>');
+    res.send('<h3>Welcome to learning node js with sushil</h1>');
+
 });
 app.get("/video/:id", (request, response) => {
     response.json({
@@ -33,6 +36,7 @@ app.get("/video/:id", (request, response) => {
         ]
     })
 })
+// nested query params
 app.get("/video/:id/:name", (request, response) => {
     response.json({
         VideoId: request.params.id,
