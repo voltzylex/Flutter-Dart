@@ -22,14 +22,35 @@ app.listen(port, hostname, (err) => {
 app.get('/', (req, res) => {
     res.send("Hello world");
 });
-
+app.get("/video/:id", (request, response) => {
+    response.json({
+        VideoId: request.params.id,
+        data: [
+            {
+                name: "sushil",
+                proffesion: "flutter_developer"
+            }
+        ]
+    })
+})
+app.get("/video/:id/:name", (request, response) => {
+    response.json({
+        VideoId: request.params.id,
+        data: [
+            {
+                name: request.params.name,
+                proffesion: "flutter_developer"
+            }
+        ]
+    })
+})
 // C R U D
 
 // CREATE DATA
-app.post()
+//   app.post()
 // READ THE DATA
-app.get()
+//   app.get()
 // UPDATE THE DATA
-app.put()
+//   app.put()
 // DELETE THE DATA
-app.delete()
+//   app.delete()
