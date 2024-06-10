@@ -22,7 +22,8 @@ app.listen(port, hostname, (err) => {
 app.get('/', (req, res) => {
     // res.send('<h1>Welcome to learning node js with sushil</h1>');
     // res.send('<h2>Welcome to learning node js with sushil</h1>');
-    res.send('<h3>Welcome to learning node js with sushil</h1>');
+    res.status(200).send('<h3>Welcome to learning node js with sushil</h1>');
+
 
 });
 app.get("/video/:id", (request, response) => {
