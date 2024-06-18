@@ -5,7 +5,7 @@ import 'package:ui_common/ui_common.dart';
 
 class SmartHomeApp extends StatelessWidget {
   const SmartHomeApp({super.key});
-
+  // Now let's add the parallax effect
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
