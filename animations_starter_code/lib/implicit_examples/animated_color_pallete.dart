@@ -44,6 +44,7 @@ class _AnimatedColorPaletteState extends State<AnimatedColorPalette> {
             for (Color color in currentPalette)
               AnimatedContainer(
                 duration: Durations.extralong1,
+                curve: Curves.easeInOut,
                 width: 100,
                 height: 100,
                 color: color,
