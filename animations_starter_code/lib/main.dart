@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'implicit_examples/animated_shopping_cart_button.dart';
+import 'implicit_examples/animated_tween_animation_builder_example.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ShoppingCartButton(),
+      home: PulsatingCircleAnimation(),
     );
   }
 }
