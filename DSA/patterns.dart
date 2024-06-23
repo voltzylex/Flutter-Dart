@@ -1,3 +1,5 @@
+// https://takeuforward.org/strivers-a2z-dsa-course/must-do-pattern-problems-before-starting-dsa/
+
 /*
 * * *
 * * *
@@ -84,6 +86,28 @@ public class Solution {
         for(int i = 0;i<n;i++){
             for(int j=n;j>i;j--){
                 System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+/*
+Pattern 6
+1 2 3
+1 2
+1
+*/
+
+public class Solution {
+    public static void nNumberTriangle(int n) {
+        // Write your code here
+        for(int i =0;i<n;i++){
+            // int k=0;
+            for(int j=n;j>i;j--){
+                System.out.print(n-j+1+" ");
+                
+                // System.out.print(k+1+" ");
+                // k++;
             }
             System.out.println();
         }
