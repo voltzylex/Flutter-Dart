@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_corner/feature/home/presentation/widgets/catergories.dart';
 import 'package:pizza_corner/feature/home/presentation/widgets/search_box.dart';
 
 class Body extends StatelessWidget {
@@ -10,6 +11,7 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           SearchBox(),
+          Catergories(),
         ],
       ),
     );
