@@ -1,13 +1,18 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pizza_corner/core/assets.dart';
 import 'package:pizza_corner/core/const.dart';
 
 class SearchBox extends StatelessWidget {
-  const SearchBox({super.key});
+  const SearchBox({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    log("Search box");
     return SafeArea(
         child: Column(
       children: [

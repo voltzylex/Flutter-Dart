@@ -1,31 +1,38 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:pizza_corner/core/assets.dart';
 import 'package:pizza_corner/core/const.dart';
 
-class Catergories extends StatefulWidget {
+class Catergories extends StatelessWidget {
   const Catergories({super.key});
 
   @override
-  State<Catergories> createState() => _CatergoriesState();
-}
-
-class _CatergoriesState extends State<Catergories> {
-  ValueNotifier<double> index = ValueNotifier(0.0);
-  List<String> items = ['Popular', 'Pizza', 'Top Rated', 'Pasta', 'Food'];
-  @override
   Widget build(BuildContext context) {
+    log("Category");
     final size = MediaQuery.sizeOf(context);
+    final List<String> items = [
+      'Popular',
+      'Pizza',
+      'Top Rated',
+      'Pasta',
+      'Food'
+    ];
+    ValueNotifier<double> v = ValueNotifier(0.0);
+
     return SizedBox(
       height: size.height / 14,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: items.length,
         itemBuilder: (context, index) => GestureDetector(
-          onTap: () => this.index.value = index.toDouble(),
+          onTap: () {
+            v.value = index.toDouble();
+          },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: ValueListenableBuilder(
-                valueListenable: this.index,
+                valueListenable: v,
                 builder: (context, value, _) {
                   bool isSelected = value == index;
                   return Column(
