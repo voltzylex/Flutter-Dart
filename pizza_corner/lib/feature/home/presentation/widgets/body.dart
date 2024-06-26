@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_corner/feature/home/presentation/widgets/address_information.dart';
 import 'package:pizza_corner/feature/home/presentation/widgets/catergories.dart';
 import 'package:pizza_corner/feature/home/presentation/widgets/items_card.dart';
 import 'package:pizza_corner/feature/home/presentation/widgets/search_box.dart';
@@ -19,6 +20,7 @@ class _BodyState extends State<Body> {
           SearchBox(),
           Catergories(),
           ItemsCard(),
+          AddressInformation(),
         ],
       ),
     );
