@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:state_management/dio/presentation/pages/dio_page.dart';
 import 'package:state_management/riverpod/screens/home/home_screen.dart';
 
 void main() {
@@ -48,8 +50,34 @@ class _MainPageState extends State<MainPage> {
                     )),
                 child: const Text("Riverpod")),
           ),
+          MaterialButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            color: Colors.purple[50],
+            onPressed: () => Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => const DioPage(),
+                )),
+            child: const Text("Dio"),
+          )
         ],
       ),
     );
   }
+
+  final car = Car();
+}
+
+class Car {
+  Car._();
+  factory Car() => Car._();
+
+  
+
+  int? price;
+
+  set setprice(int nprice) => price = nprice;
+
+  get newPrice => price;
 }
