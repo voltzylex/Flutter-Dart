@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_management/dio/presentation/pages/dio_page.dart';
 import 'package:state_management/riverpod/screens/home/home_screen.dart';
+import 'package:state_management/video_upload/presentation/pages/upload_video.dart';
 
 void main() {
   /// without provider scope it will not work
@@ -60,6 +61,17 @@ class _MainPageState extends State<MainPage> {
                   builder: (context) => const DioPage(),
                 )),
             child: const Text("Dio"),
+          ),
+          MaterialButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            color: Colors.purple[50],
+            onPressed: () => Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => const UploadVideo(),
+                )),
+            child: const Text("Upload Video"),
           )
         ],
       ),
@@ -72,8 +84,6 @@ class _MainPageState extends State<MainPage> {
 class Car {
   Car._();
   factory Car() => Car._();
-
-  
 
   int? price;
 
