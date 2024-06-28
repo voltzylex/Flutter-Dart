@@ -41,6 +41,7 @@ part './clean_arcitecture/injector.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
+  await init();
   await injector<LocalDatabase>().initialize();
 
   final directory = await getApplicationDocumentsDirectory();

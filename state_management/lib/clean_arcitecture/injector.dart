@@ -1,6 +1,6 @@
 part of '../main.dart';
 
-final injector = GetIt.asNewInstance();
+final GetIt injector = GetIt.instance;
 
 Future<void> init() async {
   injector
