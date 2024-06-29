@@ -137,3 +137,29 @@ public class Solution {
     }
     
 }
+/*
+
+*****
+ ***
+  *
+  
+*/
+void nStarTriangle(int n) {
+  // Write your code here
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < i; j++) {
+      stdout.write(' ');
+    }
+    for (int j = 0; j < 2 * n - (2 * i + 1); j++) {
+      stdout.write('*');
+    }
+    for (int j = 0; j < i; j++) {
+      stdout.write(' ');
+    }
+    print('');
+  }
+}
+
+void main() {
+  nStarTriangle(5); // Change the value to test with different inputs
+}
