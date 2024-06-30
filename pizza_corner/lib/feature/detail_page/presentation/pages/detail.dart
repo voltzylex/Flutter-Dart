@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_corner/feature/detail_page/presentation/widgets/container_change_price.dart';
 import 'package:pizza_corner/feature/detail_page/presentation/widgets/container_image_price.dart';
 
 import '../../../home/domain/models/pizza.dart';
@@ -33,15 +34,25 @@ class Detail extends StatelessWidget {
             end: Alignment.bottomRight,
           ),
         ),
-        child: Column(
-          children: [
-            ContainerImagePrice(
-              image: pizza.image,
-              index: index,
-              myWidget: myWidget.value,
-            ),
-          ],
-        ),
+        child: ValueListenableBuilder(
+            valueListenable: myWidget,
+            builder: (context, value, _) {
+              return Column(
+                children: [
+                  ContainerImagePrice(
+                    image: pizza.image,
+                    index: index,
+                    myWidget: myWidget.value,
+                  ),
+                  ContainerChangePrice(
+                    title: pizza.title,
+                    description: pizza.description,
+                    myWidget: myWidget,
+                    prices: pizza.prices,
+                  ),
+                ],
+              );
+            }),
       ),
     );
   }
