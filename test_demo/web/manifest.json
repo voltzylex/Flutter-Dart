@@ -1,6 +1,6 @@
 {
-    "name": "test_demo",
-    "short_name": "test_demo",
+    "name": "flutter_deeplinking",
+    "short_name": "flutter_deeplinking",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

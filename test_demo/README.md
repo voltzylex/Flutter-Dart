@@ -1,4 +1,4 @@
-# test_demo
+# flutter_deeplinking
 
 A new Flutter project.
 
