@@ -1,22 +1,39 @@
-import 'dart:developer';
-
-import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_deeplinking/router.dart';
+import 'package:flutter_deeplinking/deep_gorouter/first_page.dart';
+import 'package:flutter_deeplinking/deep_gorouter/second_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ivs_broadcaster/ivs_broadcaster.dart';
 
-void main() {
-  runApp(
-    MaterialApp.router(
-      routerConfig: goRouter,
-      // routerDelegate: goRouter.routerDelegate,
-      // home: const HomePage(),
-      // routes: {
-      //   "/login": (context) => const SecondPage(),
-      // },
-      // onGenerateRoute: generateRoute,
-    ),
-  );
+// List<CameraDescription> cameras = [];
+
+// Future<void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+
+//   cameras = await availableCameras();
+
+//   runApp(
+//     MaterialApp.router(
+//       routerConfig: goRouter,
+//       // routerDelegate: goRouter.routerDelegate,
+//       // home: const HomePage(),
+//       // routes: {
+//       //   "/login": (context) => const SecondPage(),
+//       // },
+//       // onGenerateRoute: generateRoute,
+//     ),
+//   );
+// }
+Future<void> main() async {
+  // Fetch the available cameras before initializing the app.
+  // try {
+  //   WidgetsFlutterBinding.ensureInitialized();
+  //   cameras = await availableCameras();
+  // } on CameraException catch (e) {
+  //   logError(e.code, e.description ?? "No description found");
+  // }
+  runApp(const GoHomePage());
+  // runApp(HomePage());
+  // runApp(CameraApp());
 }
 
 class MainTest {
@@ -33,32 +50,56 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _appLinks = AppLinks(); // AppLinks is singleton
+  // final _appLinks = AppLinks(); // AppLinks is singleton
   @override
   void initState() {
     super.initState();
-    _appLinks.uriLinkStream.listen((uri) {
-      log("URi path ${uri.path} : ${uri.pathSegments} : ${uri.fragment} ");
-      // Do something (navigation, ...)
-      if (uri.path.contains("/details")) {
-        return context.pushReplacement("/details/Osama");
-      }
-    });
-    getInitialData();
+    // _appLinks.uriLinkStream.listen((uri) {
+    //   log("URi path ${uri.path} : ${uri.pathSegments} : ${uri.fragment} ");
+    //   // Do something (navigation, ...)
+    //   if (uri.path.contains("/details")) {
+    //     return context.pushReplacement("/details/Osama");
+    //   }
+    // });
+    // getInitialData();
   }
 
-  getInitialData() async {
-    final uri = await _appLinks.getInitialLink();
-    log("Initial Url => ${uri?.data}");
-  }
+  // getInitialData() async {
+  //   final uri = await _appLinks.getInitialLink();
+  //   log("Initial Url => ${uri?.data}");
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: const Center(
-        child: Text("Main page"),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Home page"),
+        ),
+        body: const Center(
+          child: Text("Home page"),
+        ),
       ),
     );
   }
 }
+
+class GoHomePage extends StatelessWidget {
+  const GoHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerConfig: router,
+    );
+  }
+}
+
+final router = GoRouter(debugLogDiagnostics: true, routes: [
+  GoRoute(path: '/', builder: (context, state) => const FirstPage(), routes: [
+    GoRoute(
+      path: 'second',
+      builder: (context, state) => const SecondPage2(),
+    )
+  ]),
+]);
