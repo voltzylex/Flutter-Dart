@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:spotify/common/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/assets.dart';
 import 'package:spotify/core/configs/helpers/size_extension.dart';
 import 'package:spotify/core/configs/theme/app_colors.dart';
+import 'package:spotify/presentation/choose_mode/pages/choose_mode.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
@@ -13,18 +15,6 @@ class GetStartedPage extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // const SizedBox(
-          //   height: double.infinity,
-          //   width: double.infinity,
-          //   child: DecoratedBox(
-          //     decoration: BoxDecoration(
-          //       image: DecorationImage(
-          //         fit: BoxFit.fill,
-          //         image: AssetImage(Assets.assetsImagesIntroBg),
-          //       ),
-          //     ),
-          //   ),
-          // ),
           Image.asset(
             Assets.assetsImagesIntroBg,
             fit: BoxFit.cover,
@@ -47,15 +37,24 @@ class GetStartedPage extends StatelessWidget {
                 ),
                 21.h,
                 const Text(
-                  "Enjoy Listening To Music",
+                  "Lorem ksdff sdfjsdk kjasdkfjk kjdskj dskjsdkfjdks dkj ksdfsdk fsdkfsdj fdksfkj",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    fontSize: 10,
+                    fontSize: 13,
                     color: AppColors.grey,
                   ),
+                  textAlign: TextAlign.center,
                 ),
+                20.h,
+                BasicAppButton(
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChooseModePage(),
+                        )),
+                    title: "Get Started")
               ],
-            ),
+            ).padding(EdgeInsets.symmetric(vertical: 40, horizontal: 40)),
           ),
           // use black color for a overlay effect on the scree
         ],
