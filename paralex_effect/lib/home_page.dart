@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class ParalexEffect extends StatefulWidget {
@@ -33,46 +35,47 @@ class _ParalexEffectState extends State<ParalexEffect> {
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
       body: ListView.builder(
-        physics: BouncingScrollPhysics(),
-        controller: _controller,
-        itemCount: 5,
-        itemBuilder: (context, index) => Stack(
-          alignment: Alignment.center,
-          children: [
-            Container(
-              clipBehavior: Clip.hardEdge,
-              decoration: BoxDecoration(),
-              child: Container(
-                transform: Matrix4.identity()
-                  ..translate(
-                      0.0,
-                      _controller.hasClients
-                          ? (-(index * size.height) +
-                                  _controller.position.pixels) /
-                              2
-                          : 1.0),
-                height: size.height,
-                width: size.width,
-                child: Image.asset(
-                  "assets/image${index + 1}.jpg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Align(
+          physics: const BouncingScrollPhysics(),
+          controller: _controller,
+          itemCount: 5,
+          itemBuilder: (context, index) {
+            double yAxis = _controller.hasClients
+                ? (-(index * size.height) + _controller.position.pixels) / 2
+                : 1.0;
+            // -((0*852)+3000)/2
+            log("YAxix : $yAxis : Size of height is : ${size.height}");
+            log("Scroll pixel : ${_controller.position.pixels}");
+            return Stack(
               alignment: Alignment.center,
-              child: Text(
-                texts[index],
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 50,
-                  color: Colors.white,
+              children: [
+                Container(
+                  height: size.height,
+                  clipBehavior: Clip.hardEdge,
+                  decoration: const BoxDecoration(),
+                  child: Container(
+                    transform: Matrix4.identity()..translate(0.0, yAxis),
+                    height: size.height,
+                    width: size.width,
+                    child: Image.asset(
+                      "assets/image${index + 1}.jpg",
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-              ),
-            )
-          ],
-        ),
-      ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    texts[index],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 50,
+                      color: Colors.white,
+                    ),
+                  ),
+                )
+              ],
+            );
+          }),
     );
   }
 }
