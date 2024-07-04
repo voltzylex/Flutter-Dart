@@ -4,10 +4,12 @@ import 'package:spotify/common/common_functions.dart';
 
 class ThemeCubit extends HydratedCubit<ThemeMode> {
   ThemeCubit() : super(ThemeMode.system) {
-    debugLog("Theme Cubit is Initialized", name: "Theme Cubit");
+    debugLog(
+      "Theme Cubit is Initialized",
+    );
   }
 
-  void updateTheme() => emit(ThemeMode.system);
+  void updateTheme(ThemeMode mode) => emit(mode);
   @override
   ThemeMode? fromJson(Map<String, dynamic> json) {
     // TODO: implement fromJson
