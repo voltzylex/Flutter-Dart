@@ -4,10 +4,10 @@ import 'package:spotify/common/widgets/button/app_bar.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/assets.dart';
 import 'package:spotify/core/configs/helpers/size_extension.dart';
-import 'package:spotify/presentation/auth/pages/signin.dart';
+import 'package:spotify/presentation/auth/pages/signup.dart';
 
-class SignupPage extends StatelessWidget {
-  const SignupPage({super.key});
+class SigninPage extends StatelessWidget {
+  const SigninPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,24 +19,22 @@ class SignupPage extends StatelessWidget {
           width: 40,
         ),
       ),
-      bottomNavigationBar: _signupText(context),
+      bottomNavigationBar: _signinText(context),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 50, horizontal: 30),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _registerText(),
             50.h,
-            _customField(context, "Full Name"),
-            20.h,
             _customField(context, "Enter Email"),
             20.h,
             _customField(context, "Password"),
             20.h,
             BasicAppButton(
               onPressed: () {},
-              title: "Create Account",
+              title: "Sign In",
             ),
           ],
         ),
@@ -46,7 +44,7 @@ class SignupPage extends StatelessWidget {
 
   Widget _registerText() {
     return const Text(
-      "Register",
+      "Sign In",
       style: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 25,
@@ -62,27 +60,25 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  Widget _signupText(BuildContext context) {
+  Widget _signinText(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Do You Have An Account?",
+          "Not A Member?",
           style: TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 14,
           ),
         ),
         TextButton(
-          onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => SigninPage(),
-              ),
-            );
-          },
-          child: Text("Sign in"),
+          onPressed: () => Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => SignupPage(),
+            ),
+          ),
+          child: Text("Register Now"),
         ),
       ],
     ).padding(EdgeInsets.only(bottom: 10));

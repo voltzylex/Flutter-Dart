@@ -15,7 +15,31 @@ class AppTheme {
             fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.black),
       ),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: Colors.transparent,
+      contentPadding: const EdgeInsets.all(20),
+      hintStyle: TextStyle(
+        color: AppColors.black,
+        fontWeight: FontWeight.w500,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: BorderSide(
+          color: AppColors.black,
+          width: 0.4,
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: BorderSide(
+          color: AppColors.black,
+          width: 0.4,
+        ),
+      ),
+    ),
   );
+  // ***************************************************************************************************************************
   static final darkTheme = ThemeData(
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.darkBackground,
@@ -27,6 +51,29 @@ class AppTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         textStyle: const TextStyle(
             fontSize: 16, fontWeight: FontWeight.bold, color: AppColors.white),
+      ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: Colors.transparent,
+      contentPadding: const EdgeInsets.all(20),
+      hintStyle: TextStyle(
+        color: AppColors.hintGrey,
+        fontWeight: FontWeight.w500,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: BorderSide(
+          color: AppColors.white,
+          width: 0.4,
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30),
+        borderSide: BorderSide(
+          color: AppColors.white,
+          width: 0.4,
+        ),
       ),
     ),
   );

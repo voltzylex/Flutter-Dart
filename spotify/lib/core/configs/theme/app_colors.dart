@@ -9,4 +9,5 @@ class AppColors {
   static const ovalGrey = Color(0xff30393C);
   static const white = Color(0xffffffff);
   static const black = Color(0xff000000);
+  static const hintGrey = Color(0xffA7A7A7);
 }

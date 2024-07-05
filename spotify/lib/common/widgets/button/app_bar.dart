@@ -10,6 +10,7 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: title,
+      centerTitle: true,
       backgroundColor: Colors.transparent,
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
