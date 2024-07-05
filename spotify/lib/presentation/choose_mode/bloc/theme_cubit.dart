@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:spotify/common/common_functions.dart';
+import 'package:spotify/common/helpers/common_functions.dart';
 
 class ThemeCubit extends HydratedCubit<ThemeMode> {
   ThemeCubit() : super(ThemeMode.system) {
@@ -9,16 +9,22 @@ class ThemeCubit extends HydratedCubit<ThemeMode> {
     );
   }
 
-  void updateTheme(ThemeMode mode) => emit(mode);
+  void updateTheme(ThemeMode mode) {
+    debugLog("Update Theme called Theme mode : $mode");
+    emit(mode);
+  }
+
   @override
   ThemeMode? fromJson(Map<String, dynamic> json) {
-    // TODO: implement fromJson
-    throw UnimplementedError();
+    final theme = ThemeMode.values[json['theme'] as int];
+    debugLog("From Json : $theme");
+    return theme;
   }
 
   @override
   Map<String, dynamic>? toJson(ThemeMode state) {
-    // TODO: implement toJson
-    throw UnimplementedError();
+    final theme = {'theme': state.index};
+    debugLog("To Json : $theme");
+    return theme;
   }
 }

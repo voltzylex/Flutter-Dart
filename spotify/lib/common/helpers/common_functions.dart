@@ -1,10 +1,14 @@
+// ignore_for_file: avoid_print
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 
-// void debugLog(String message, {String name = ""}) {
-//   log(message, name: name);
-// }
-void debugLog(String message, {bool error = false}) {
+void debugLog(String message, {bool error = false, bool isLog = true}) {
   if (!kDebugMode) {
+    return;
+  }
+  if (isLog) {
+    log(message, name: "Debug");
     return;
   }
   if (error) {
