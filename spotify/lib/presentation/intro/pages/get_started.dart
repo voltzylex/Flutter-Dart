@@ -50,11 +50,11 @@ class GetStartedPage extends StatelessWidget {
                     onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ChooseModePage(),
+                          builder: (context) => const ChooseModePage(),
                         )),
                     title: "Get Started")
               ],
-            ).padding(EdgeInsets.symmetric(vertical: 40, horizontal: 40)),
+            ).padding(const EdgeInsets.symmetric(vertical: 40, horizontal: 40)),
           ),
           // use black color for a overlay effect on the scree
         ],

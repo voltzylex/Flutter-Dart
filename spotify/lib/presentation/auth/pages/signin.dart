@@ -21,7 +21,7 @@ class SigninPage extends StatelessWidget {
       ),
       bottomNavigationBar: _signinText(context),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 50, horizontal: 30),
+        padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,7 +64,7 @@ class SigninPage extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
+        const Text(
           "Not A Member?",
           style: TextStyle(
             fontWeight: FontWeight.w500,
@@ -78,9 +78,9 @@ class SigninPage extends StatelessWidget {
               builder: (context) => SignupPage(),
             ),
           ),
-          child: Text("Register Now"),
+          child: const Text("Register Now"),
         ),
       ],
-    ).padding(EdgeInsets.only(bottom: 10));
+    ).padding(const EdgeInsets.only(bottom: 10));
   }
 }

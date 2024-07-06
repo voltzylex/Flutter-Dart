@@ -19,20 +19,20 @@ class AppTheme {
       filled: true,
       fillColor: Colors.transparent,
       contentPadding: const EdgeInsets.all(20),
-      hintStyle: TextStyle(
+      hintStyle: const TextStyle(
         color: AppColors.black,
         fontWeight: FontWeight.w500,
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: AppColors.black,
           width: 0.4,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: AppColors.black,
           width: 0.4,
         ),
@@ -57,20 +57,20 @@ class AppTheme {
       filled: true,
       fillColor: Colors.transparent,
       contentPadding: const EdgeInsets.all(20),
-      hintStyle: TextStyle(
+      hintStyle: const TextStyle(
         color: AppColors.hintGrey,
         fontWeight: FontWeight.w500,
       ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: AppColors.white,
           width: 0.4,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: AppColors.white,
           width: 0.4,
         ),
