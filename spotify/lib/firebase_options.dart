@@ -23,7 +23,6 @@ class DefaultFirebaseOptions {
       );
     }
     switch (defaultTargetPlatform) {
-    
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
@@ -52,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCb0YsoJB9u2N3W-jQ0pllZXHDHbsgjcOI',
-    appId: '1:572056824888:android:021ac0e53792ad59f14acd',
+    appId: '1:572056824888:android:5f91c8851999c0e9f14acd',
     messagingSenderId: '572056824888',
     projectId: 'spotify-clone-48ff8',
     storageBucket: 'spotify-clone-48ff8.appspot.com',
@@ -60,10 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDe1mJRdVVWYpzBzKTgJZEOaSIPb67JWeI',
-    appId: '1:572056824888:ios:7def083588b3bb97f14acd',
+    appId: '1:572056824888:ios:c106ac0f3158991cf14acd',
     messagingSenderId: '572056824888',
     projectId: 'spotify-clone-48ff8',
     storageBucket: 'spotify-clone-48ff8.appspot.com',
-    iosBundleId: 'com.example.spotiyclone.spotify',
+    iosBundleId: 'com.example.spoti',
   );
+
 }
