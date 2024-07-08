@@ -24,6 +24,7 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             _homeArtist(),
+            _tabs(),
           ],
         ),
       ),
@@ -48,6 +49,18 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _tabs() {
+    return DefaultTabController(
+      length: 4,
+      child: TabBar(tabs: [
+        Text("News"),
+        Text("Videos"),
+        Text("Artist"),
+        Text("Podcasts")
+      ]),
     );
   }
 }
