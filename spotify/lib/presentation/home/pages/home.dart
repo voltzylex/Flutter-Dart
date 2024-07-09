@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:spotify/common/helpers/is_dark_mode.dart';
 import 'package:spotify/common/widgets/button/app_bar.dart';
 import 'package:spotify/core/configs/helpers/size_extension.dart';
 
 import '../../../core/configs/assets/assets.dart';
+import '../../../core/configs/theme/app_colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  final textStyle = const TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: 17,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +31,8 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             _homeArtist(),
-            _tabs(),
+            20.h,
+            _tabs(context),
           ],
         ),
       ),
@@ -33,8 +41,8 @@ class HomePage extends StatelessWidget {
 
   Widget _homeArtist() {
     return Center(
-      child: Container(
-        height: 188,
+      child: SizedBox(
+        height: 140,
         child: Stack(
           children: [
             Align(
@@ -52,15 +60,34 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _tabs() {
+  Widget _tabs(BuildContext context) {
     return DefaultTabController(
       length: 4,
-      child: TabBar(tabs: [
-        Text("News"),
-        Text("Videos"),
-        Text("Artist"),
-        Text("Podcasts")
-      ]),
+      child: TabBar(
+          labelColor: context.isDarkMode ? AppColors.white : AppColors.black,
+          indicatorColor: AppColors.primary,
+          padding: EdgeInsets.symmetric(
+            vertical: 30,
+            horizontal: 16,
+          ),
+          tabs: [
+            Text(
+              "News",
+              style: textStyle,
+            ),
+            Text(
+              "Videos",
+              style: textStyle,
+            ),
+            Text(
+              "Artist",
+              style: textStyle,
+            ),
+            Text(
+              "Podcasts",
+              style: textStyle,
+            )
+          ]),
     );
   }
 }
