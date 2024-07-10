@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
                     alignment: Alignment.bottomRight,
                     child: Image.asset(Assets.assetsImagesHomeArtist))
                 .padding(
-              EdgeInsets.only(right: 60),
+              const EdgeInsets.only(right: 60),
             ),
           ],
         ),
@@ -63,31 +63,37 @@ class HomePage extends StatelessWidget {
   Widget _tabs(BuildContext context) {
     return DefaultTabController(
       length: 4,
-      child: TabBar(
-          labelColor: context.isDarkMode ? AppColors.white : AppColors.black,
-          indicatorColor: AppColors.primary,
-          padding: EdgeInsets.symmetric(
-            vertical: 30,
-            horizontal: 16,
-          ),
-          tabs: [
-            Text(
-              "News",
-              style: textStyle,
+      child: Theme(
+        data: ThemeData(
+          useMaterial3: false,
+        ),
+        child: TabBar(
+            labelColor: context.isDarkMode ? AppColors.white : AppColors.black,
+            indicatorColor: AppColors.primary,
+            isScrollable: true,
+            padding: const EdgeInsets.symmetric(
+              vertical: 30,
+              horizontal: 16,
             ),
-            Text(
-              "Videos",
-              style: textStyle,
-            ),
-            Text(
-              "Artist",
-              style: textStyle,
-            ),
-            Text(
-              "Podcasts",
-              style: textStyle,
-            )
-          ]),
+            tabs: [
+              Text(
+                "News",
+                style: textStyle,
+              ),
+              Text(
+                "Videos",
+                style: textStyle,
+              ),
+              Text(
+                "Artist",
+                style: textStyle,
+              ),
+              Text(
+                "Podcasts",
+                style: textStyle,
+              )
+            ]),
+      ),
     );
   }
 }

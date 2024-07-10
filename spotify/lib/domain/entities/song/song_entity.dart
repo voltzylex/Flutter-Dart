@@ -9,7 +9,15 @@ class SongEntity {
   SongEntity(
     this.artist,
     this.duration,
-    this.releaseDate, {
-    required this.title,
-  });
+    this.releaseDate,
+    this.title,
+  );
+  factory SongEntity.fromJson(Map<String, dynamic> data) {
+    return SongEntity(
+        data["artist"], data["duration"], data["releaseDate"], data["title"]);
+    // title = data["title"];
+    // artist = data["artist"];
+    // duration = data["duration"];
+    // releaseDate = data["releaseDate"];
+  }
 }
