@@ -4,9 +4,9 @@ import 'package:spotify/presentation/home/blog/news_song_state.dart';
 
 import '../../../service_locator.dart';
 
-class SongCubit extends Cubit<NewsSongState> {
+class NewSongCubit extends Cubit<NewsSongState> {
   // super will whenever the cubit is initialized
-  SongCubit() : super(NewSongLoading());
+  NewSongCubit() : super(NewSongLoading());
 
   Future<void> getNewSongs() async {
     final returnedSongs = await sl<GetNewSongUsecase>().call();
