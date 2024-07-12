@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_deeplinking/deep_gorouter/first_page.dart';
-import 'package:flutter_deeplinking/deep_gorouter/second_page.dart';
-import 'package:go_router/go_router.dart';
-import 'package:ivs_broadcaster/ivs_broadcaster.dart';
+import 'package:flutter_deeplinking/custom_video.dart';
+import 'package:flutter_deeplinking/video_player.dart';
+// import 'package:go_router/go_router.dart';
+// import 'package:ivs_broadcaster/ivs_broadcaster.dart';
 
 // List<CameraDescription> cameras = [];
 
@@ -84,22 +85,50 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class GoHomePage extends StatelessWidget {
+class GoHomePage extends StatefulWidget {
   const GoHomePage({super.key});
 
   @override
+  State<GoHomePage> createState() => _GoHomePageState();
+}
+
+class _GoHomePageState extends State<GoHomePage> {
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: router,
-    );
+    return MaterialApp(home: Scaffold(
+      body: Builder(builder: (context) {
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => const PlayerPage(),
+                    )),
+                child: const Text("default player")),
+            ElevatedButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => const CustomVideo(),
+                    )),
+                child: const Text("Custom player")),
+          ],
+        );
+      }),
+    ));
+    //  MaterialApp.router(
+    //   routerConfig: router,
+    // );
   }
 }
 
-final router = GoRouter(debugLogDiagnostics: true, routes: [
-  GoRoute(path: '/', builder: (context, state) => const FirstPage(), routes: [
-    GoRoute(
-      path: 'second',
-      builder: (context, state) => const SecondPage2(),
-    )
-  ]),
-]);
+// final router = GoRouter(debugLogDiagnostics: true, routes: [
+//   GoRoute(path: '/', builder: (context, state) => const FirstPage(), routes: [
+//     GoRoute(
+//       path: 'second',
+//       builder: (context, state) => const SecondPage2(),
+//     )
+//   ]),
+// ]);

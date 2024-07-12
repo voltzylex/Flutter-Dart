@@ -1,58 +1,40 @@
 PODS:
-  - app_links (0.0.1):
-    - Flutter
+  - AmazonIVSBroadcast (1.19.0):
+    - AmazonIVSBroadcast/Core (= 1.19.0)
+  - AmazonIVSBroadcast/Core (1.19.0)
+  - AmazonIVSPlayer (1.29.0)
   - Flutter (1.0.0)
-  - HaishinKit (1.0.13):
-    - Logboard (~> 2.1.3)
-  - Logboard (2.1.3)
-  - path_provider_foundation (0.0.1):
+  - ivs_broadcaster (0.0.1):
+    - AmazonIVSBroadcast (~> 1.19.0)
+    - AmazonIVSPlayer (~> 1.29.0)
     - Flutter
-    - FlutterMacOS
-  - rtmp_broadcaster (0.0.1):
-    - Flutter
-    - HaishinKit (~> 1.0.10)
-  - video_player_avfoundation (0.0.1):
-    - Flutter
-    - FlutterMacOS
-  - wakelock (0.0.1):
+  - permission_handler_apple (9.3.0):
     - Flutter
 
 DEPENDENCIES:
-  - app_links (from `.symlinks/plugins/app_links/ios`)
   - Flutter (from `Flutter`)
-  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
-  - rtmp_broadcaster (from `.symlinks/plugins/rtmp_broadcaster/ios`)
-  - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/darwin`)
-  - wakelock (from `.symlinks/plugins/wakelock/ios`)
+  - ivs_broadcaster (from `.symlinks/plugins/ivs_broadcaster/ios`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
 
 SPEC REPOS:
   trunk:
-    - HaishinKit
-    - Logboard
+    - AmazonIVSBroadcast
+    - AmazonIVSPlayer
 
 EXTERNAL SOURCES:
-  app_links:
-    :path: ".symlinks/plugins/app_links/ios"
   Flutter:
     :path: Flutter
-  path_provider_foundation:
-    :path: ".symlinks/plugins/path_provider_foundation/darwin"
-  rtmp_broadcaster:
-    :path: ".symlinks/plugins/rtmp_broadcaster/ios"
-  video_player_avfoundation:
-    :path: ".symlinks/plugins/video_player_avfoundation/darwin"
-  wakelock:
-    :path: ".symlinks/plugins/wakelock/ios"
+  ivs_broadcaster:
+    :path: ".symlinks/plugins/ivs_broadcaster/ios"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
 
 SPEC CHECKSUMS:
-  app_links: e70ca16b4b0f88253b3b3660200d4a10b4ea9795
+  AmazonIVSBroadcast: ed142d30deff374da5a5d1d490808a4bff0ca4b9
+  AmazonIVSPlayer: d723049ee0d9b73f78c21a21fc61e2399e1c2650
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  HaishinKit: d1786896ace24065d466bde02356c5352ac001b0
-  Logboard: e74ec2d9941abd22f4db3a3ddcd0735011df92c7
-  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
-  rtmp_broadcaster: 83acb312407c26d2b629f545689fcf0db26a7750
-  video_player_avfoundation: 7c6c11d8470e1675df7397027218274b6d2360b3
-  wakelock: d0fc7c864128eac40eba1617cb5264d9c940b46f
+  ivs_broadcaster: 62250d4880c97fdd7c1ad34905a597a9ce7f9bec
+  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
 
