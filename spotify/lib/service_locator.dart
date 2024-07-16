@@ -8,6 +8,8 @@ import 'package:spotify/domain/repository/song/song_repo.dart';
 import 'package:spotify/domain/usecases/auth/signin_usecase.dart';
 import 'package:spotify/domain/usecases/auth/signup_usecase.dart';
 
+import 'domain/usecases/song/get_new_songs.dart';
+
 final sl = GetIt.instance;
 
 Future<void> initializeDependencies() async {
@@ -31,5 +33,8 @@ Future<void> initializeDependencies() async {
   );
   sl.registerSingleton<SigninUsecase>(
     SigninUsecase(),
+  );
+  sl.registerSingleton<GetNewSongUsecase>(
+    GetNewSongUsecase(),
   );
 }

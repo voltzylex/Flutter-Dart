@@ -6,19 +6,22 @@ class SongModel {
   String? artist;
   num? duration;
   Timestamp? releaseDate;
+  String? image;
 
-  SongModel(this.artist, this.duration, this.releaseDate, this.title);
+  SongModel(
+      this.artist, this.duration, this.releaseDate, this.title, this.image);
 
   SongModel.fromJon(Map<String, dynamic> data) {
     title = data["title"];
     artist = data["artist"];
     duration = data["duration"];
     releaseDate = data["releaseDate"];
+    image = data["image"];
   }
 }
 
 extension SongModelX on SongModel {
   SongEntity toEntity() {
-    return SongEntity(artist!, duration!, releaseDate!, title!);
+    return SongEntity(artist!, duration!, releaseDate!, title!, image!);
   }
 }

@@ -3,12 +3,27 @@ import 'package:flutter_svg/svg.dart';
 import 'package:spotify/common/helpers/is_dark_mode.dart';
 import 'package:spotify/common/widgets/button/app_bar.dart';
 import 'package:spotify/core/configs/helpers/size_extension.dart';
+import 'package:spotify/presentation/home/widgets/new_songs.dart';
 
 import '../../../core/configs/assets/assets.dart';
 import '../../../core/configs/theme/app_colors.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 4, vsync: this);
+    super.initState();
+  }
 
   final textStyle = const TextStyle(
     fontWeight: FontWeight.w500,
@@ -33,6 +48,15 @@ class HomePage extends StatelessWidget {
             _homeArtist(),
             20.h,
             _tabs(context),
+            SizedBox(
+              height: 260,
+              child: TabBarView(controller: _tabController, children: [
+                NewSongs(),
+                SizedBox(),
+                SizedBox(),
+                SizedBox(),
+              ]),
+            ),
           ],
         ),
       ),
