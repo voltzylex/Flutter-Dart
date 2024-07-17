@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:spotify/common/helpers/common_functions.dart';
 import 'package:spotify/data/models/song/song_model.dart';
 import 'package:spotify/domain/entities/song/song_entity.dart';
 
@@ -13,15 +14,17 @@ class SongFirebaseServiceImpl extends SongFirebaseService {
     try {
       List<SongEntity> songs = [];
       final data = await FirebaseFirestore.instance
-          .collection("Songs")
+          .collection("songs")
           .orderBy("releaseDate", descending: true)
-          .limit(3)
+          .limit(5)
           .get();
       // songs.addAll(data.docs.map(
       //   (e) => SongEntity.fromJson(e.data()),
       // ));
+
       for (var elements in data.docs) {
         var songModel = SongModel.fromJon(elements.data());
+        debugLog("New Song data ${elements.data()}", isLog: true);
         songs.add(songModel.toEntity());
       }
       return Right(songs);
