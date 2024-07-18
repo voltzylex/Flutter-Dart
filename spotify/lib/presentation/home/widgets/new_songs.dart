@@ -27,7 +27,7 @@ class NewSongs extends StatelessWidget {
               return _songs(state.songs);
             }
 
-            return const SizedBox();
+            return const Center(child: Text("Error Occured"));
           },
         ),
       ),

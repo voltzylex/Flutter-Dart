@@ -4,6 +4,7 @@ import 'package:spotify/common/helpers/is_dark_mode.dart';
 import 'package:spotify/common/widgets/button/app_bar.dart';
 import 'package:spotify/core/configs/helpers/size_extension.dart';
 import 'package:spotify/presentation/home/widgets/new_songs.dart';
+import 'package:spotify/presentation/home/widgets/play_list.dart';
 
 import '../../../core/configs/assets/assets.dart';
 import '../../../core/configs/theme/app_colors.dart';
@@ -57,6 +58,7 @@ class _HomePageState extends State<HomePage>
                 SizedBox(),
               ]),
             ),
+            const PlayList(),
           ],
         ),
       ),

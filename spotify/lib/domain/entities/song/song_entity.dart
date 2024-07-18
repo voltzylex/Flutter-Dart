@@ -6,13 +6,15 @@ class SongEntity {
   final num duration;
   final Timestamp releaseDate;
   final String image;
+    final bool isFavorite;
+  final String songId;
 
   SongEntity(
     this.artist,
     this.duration,
     this.releaseDate,
     this.title,
-    this.image,
+    this.image, this.isFavorite, this.songId,
   );
 
   factory SongEntity.fromJson(Map<String, dynamic> data) {
@@ -22,6 +24,8 @@ class SongEntity {
       data["releaseDate"],
       data["title"],
       data["image"],
+      data["favorite"],
+      data["id"]
     );
     // title = data["title"];
     // artist = data["artist"];

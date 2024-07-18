@@ -12,10 +12,10 @@ class NewSongCubit extends Cubit<NewsSongState> {
     final returnedSongs = await sl<GetNewSongUsecase>().call();
     returnedSongs.fold(
       (l) {
-        emit(NewSongLoadFailure());
+        return emit(NewSongLoadFailure());
       },
       (r) {
-        emit(NewSongLoaded(songs: r));
+        return emit(NewSongLoaded(songs: r));
       },
     );
   }

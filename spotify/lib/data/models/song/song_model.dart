@@ -7,6 +7,8 @@ class SongModel {
   num? duration;
   Timestamp? releaseDate;
   String? image;
+  String? songId;
+  bool? isFavorite;
 
   SongModel(
       this.artist, this.duration, this.releaseDate, this.title, this.image);
@@ -17,11 +19,14 @@ class SongModel {
     duration = data["duration"];
     releaseDate = data["releaseDate"];
     image = data["image"];
+    isFavorite = data["favorite"];
+    songId = data["id"];
   }
 }
 
 extension SongModelX on SongModel {
   SongEntity toEntity() {
-    return SongEntity(artist!, duration!, releaseDate!, title!, image!);
+    return SongEntity(
+        artist!, duration!, releaseDate!, title!, image!, isFavorite??false, songId??"NO id");
   }
 }
