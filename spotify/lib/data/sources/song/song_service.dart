@@ -25,7 +25,7 @@ class SongFirebaseServiceImpl extends SongFirebaseService {
 
       for (var elements in data.docs) {
         var songModel = SongModel.fromJson(elements.data());
-        debugLog("New Song data ${elements.data()}", isLog: true);
+        // debugLog("New Song data ${elements.data()}", isLog: true);
         songs.add(songModel.toEntity());
       }
       return Right(songs);
@@ -42,7 +42,7 @@ class SongFirebaseServiceImpl extends SongFirebaseService {
     try {
       List<SongEntity> songs = [];
       var data = await FirebaseFirestore.instance
-          .collection('Songs')
+          .collection('songs')
           .orderBy('releaseDate', descending: true)
           .get();
 
