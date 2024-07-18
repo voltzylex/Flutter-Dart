@@ -37,7 +37,7 @@ class NewSongs extends StatelessWidget {
   Widget _songs(List<SongEntity> songs) {
     return ListView.separated(
         scrollDirection: Axis.horizontal,
-        // shrinkWrap: true,
+        shrinkWrap: true,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
@@ -57,7 +57,7 @@ class NewSongs extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: Container(
+                    child: DecoratedBox(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30),
                           image: DecorationImage(

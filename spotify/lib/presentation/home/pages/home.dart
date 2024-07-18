@@ -1,7 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:spotify/common/helpers/common_functions.dart';
 import 'package:spotify/common/helpers/is_dark_mode.dart';
 import 'package:spotify/common/widgets/button/app_bar.dart';
 import 'package:spotify/core/configs/helpers/size_extension.dart';
@@ -59,14 +57,6 @@ class _HomePageState extends State<HomePage>
                 SizedBox(),
               ]),
             ),
-            ElevatedButton(
-                onPressed: () async {
-                  final data = await FirebaseFirestore.instance
-                      .collection("songs")
-                      .get();
-                  debugLog("Firebase ${data.docs.first.data()}");
-                },
-                child: const Text("Fetch Firebase Songs")),
           ],
         ),
       ),

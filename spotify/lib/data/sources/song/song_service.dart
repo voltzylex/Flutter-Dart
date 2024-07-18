@@ -6,6 +6,7 @@ import 'package:spotify/domain/entities/song/song_entity.dart';
 
 abstract class SongFirebaseService {
   Future<Either> getNewSongs();
+  Future<Either> getPlaylist();
 }
 
 class SongFirebaseServiceImpl extends SongFirebaseService {
@@ -15,7 +16,7 @@ class SongFirebaseServiceImpl extends SongFirebaseService {
       List<SongEntity> songs = [];
       final data = await FirebaseFirestore.instance
           .collection("songs")
-          .orderBy("releaseDate", descending: true)
+          .orderBy("artist", descending: false)
           .limit(5)
           .get();
       // songs.addAll(data.docs.map(
@@ -23,13 +24,38 @@ class SongFirebaseServiceImpl extends SongFirebaseService {
       // ));
 
       for (var elements in data.docs) {
-        var songModel = SongModel.fromJon(elements.data());
+        var songModel = SongModel.fromJson(elements.data());
         debugLog("New Song data ${elements.data()}", isLog: true);
         songs.add(songModel.toEntity());
       }
       return Right(songs);
     } catch (e) {
       return const Left("An Error Occured, Please try again");
+    }
+  }
+
+  @override
+  Future<Either> getPlaylist() async {
+    try {
+      List<SongEntity> songs = [];
+      var data = await FirebaseFirestore.instance
+          .collection('Songs')
+          .orderBy('releaseDate', descending: true)
+          .get();
+
+      for (var element in data.docs) {
+        var songModel = SongModel.fromJson(element.data());
+        // bool isFavorite = await sl<IsFavoriteSongUseCase>()
+        //     .call(params: element.reference.id);
+        // songModel.isFavorite = isFavorite;
+        // songModel.songId = element.reference.id;
+        songs.add(songModel.toEntity());
+      }
+
+      return Right(songs);
+    } catch (e) {
+      print(e);
+      return const Left('An error occurred, Please try again.');
     }
   }
 }
