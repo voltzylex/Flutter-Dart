@@ -5,6 +5,7 @@ import 'package:spotify/core/configs/theme/app_colors.dart';
 import 'package:spotify/domain/entities/song/song_entity.dart';
 import 'package:spotify/presentation/home/blog/news_song_cubit.dart';
 import 'package:spotify/presentation/home/blog/news_song_state.dart';
+import 'package:spotify/presentation/song_player/pages/song_player.dart';
 
 class NewSongs extends StatelessWidget {
   const NewSongs({super.key});
@@ -45,15 +46,15 @@ class NewSongs extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //    builder: (BuildContext context)
-            //   => SongPlayerPage(
-            //     songEntity: songs[index],
-            //   )
-            // )
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+               builder: (BuildContext context)
+              => SongPlayerPage(
+                songEntity: songs[index],
+              )
+            )
+            );
           },
           child: SizedBox(
             width: 160,
