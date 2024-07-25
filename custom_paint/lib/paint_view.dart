@@ -33,14 +33,17 @@ class MasterPainter extends CustomPainter {
     Paint paint = Paint();
     paint.strokeWidth = 2;
     paint.color = Colors.red;
-    final center = Offset(size.width / 2, size.height / 2);
-    canvas.drawLine(Offset.zero, Offset(size.width, 0), paint);
-    canvas.drawCircle(
-        Offset((size.width / 2) + 10, (size.height / 2) + 10), 40, paint);
+    const center = Offset(500, 500);
+    // canvas.drawLine(Offset.zero, Offset(size.width, 0), paint);
+    // canvas.drawCircle(
+    //     Offset((size.width / 2) + 50, (size.height / 2) + 50), 40, paint);
 
     // canvas.drawRect(Rect.fromCircle(center: center, radius: 40), paint);
     // canvas.drawRect(Rect.fromLTWH(50, 50, size.width, size.height), paint);
-    canvas.drawRect(const Rect.fromLTRB(50, 50, 200, 200), paint);
+    // canvas.drawRect(const Rect.fromLTRB(50, 50, 20, 80), paint);
+    // canvas.drawOval(const Rect.fromLTRB(50, 20, 100, 100), paint);
+    const rect = Rect.fromLTRB(10, 100, 100, 300);
+    canvas.drawRRect(RRect.fromRectXY(rect, 10, 10), paint);
   }
 
   @override
