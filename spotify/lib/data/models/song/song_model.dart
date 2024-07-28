@@ -9,9 +9,18 @@ class SongModel {
   String? image;
   String? songId;
   bool? isFavorite;
+  String? url;
 
   SongModel(
-      this.artist, this.duration, this.releaseDate, this.title, this.image);
+    this.artist,
+    this.duration,
+    this.releaseDate,
+    this.title,
+    this.image,
+    this.url,
+    this.isFavorite,
+    this.songId,
+  );
 
   SongModel.fromJson(Map<String, dynamic> data) {
     title = data["title"];
@@ -21,12 +30,13 @@ class SongModel {
     image = data["image"];
     isFavorite = data["favorite"];
     songId = data["id"];
+    url = data["url"];
   }
 }
 
 extension SongModelX on SongModel {
   SongEntity toEntity() {
-    return SongEntity(
-        artist!, duration!, releaseDate!, title!, image!, isFavorite??false, songId??"NO id");
+    return SongEntity(artist!, duration!, releaseDate!, title!, image!,
+        isFavorite ?? false, songId ?? "NO id", url!,);
   }
 }
