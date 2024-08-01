@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ios_native_method/app/common/extensions/common_extension.dart';
 import 'package:ios_native_method/app/common/widget/background_widget.dart';
+import 'package:ios_native_method/app/common/widget/custom_textField.dart';
 import 'package:ios_native_method/app/core/configs/theme/colors.dart';
 
 class LoginPage extends StatefulWidget {
@@ -57,7 +58,9 @@ class _LoginPageState extends State<LoginPage>
                   ),
                 ],
               ),
-            )
+            ),
+            25.h,
+            const CustomTextfield(),
           ],
         ),
       ),

@@ -14,3 +14,10 @@ extension SizeBoxExtension on num {
   SizedBox get h => SizedBox(height: toDouble());
   SizedBox get w => SizedBox(width: toDouble());
 }
+
+extension PaddingExtension on Widget {
+  Padding padding({EdgeInsets padding = EdgeInsets.zero}) => Padding(
+        padding: padding,
+        child: this,
+      );
+}
