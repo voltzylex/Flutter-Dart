@@ -6,11 +6,25 @@ class Background extends StatelessWidget {
       {super.key,
       required this.body,
       this.appBar,
-      this.background = AppColors.transparent});
+      this.background = AppColors.transparent,
+      this.bottom = false,
+      this.top = false,
+      this.right = false,
+      this.left = false,
+      this.safeArea = false})
+      : assert(
+          !(safeArea == false &&
+              (top == true || bottom == true || right == true || left == true)),
+          "Cannot set top, bottom, right, or left to true while safeArea is false",
+        );
 
+  /// Safe area is false default [safeArea] after safe area is true
+  ///  you can change the parameter like top,bottom,right,left
+  final bool safeArea;
   final Widget body;
   final PreferredSizeWidget? appBar;
   final Color? background;
+  final bool bottom, top, right, left;
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +47,8 @@ class Background extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     color: shadowColor,
-                    blurRadius: 50,
-                    spreadRadius: 50,
+                    blurRadius: 200,
+                    spreadRadius: 100,
                   ),
                 ],
               ),
@@ -58,10 +72,16 @@ class Background extends StatelessWidget {
               ),
             ),
           ),
-          Scaffold(
-            backgroundColor: background,
-            appBar: appBar,
-            body: body,
+          SafeArea(
+            bottom: !safeArea ? bottom : true,
+            left: !safeArea ? bottom : true,
+            right: !safeArea ? bottom : true,
+            top: !safeArea ? bottom : true,
+            child: Scaffold(
+              backgroundColor: background,
+              appBar: appBar,
+              body: body,
+            ),
           ),
         ],
       ),

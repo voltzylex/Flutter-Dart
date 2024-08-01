@@ -15,7 +15,8 @@ class AppTheme {
       bodyLarge: TextStyle(
           fontWeight: FontWeight.w700, fontSize: 28, color: AppColors.primary),
       bodySmall: TextStyle(
-          fontWeight: FontWeight.w400, fontSize: 12, color: AppColors.primary),
+          fontWeight: FontWeight.w400, fontSize: 14, color: AppColors.primary),
+          
     ),
   );
 }
