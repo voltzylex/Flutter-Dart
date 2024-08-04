@@ -6,6 +6,7 @@ import 'package:ios_native_method/app/common/widget/custom_textField.dart';
 import 'package:ios_native_method/app/core/configs/theme/colors.dart';
 import 'package:ios_native_method/app/features/authentication/presentation/widgets/IntlPhoneField/focused_widget.dart';
 import 'package:ios_native_method/app/features/authentication/presentation/widgets/IntlPhoneField/intl_phone_field.dart';
+import 'package:ios_native_method/app/features/authentication/presentation/widgets/gradient_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -25,6 +26,7 @@ class _LoginPageState extends State<LoginPage>
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
     return Background(
       safeArea: true,
       top: true,
@@ -63,13 +65,12 @@ class _LoginPageState extends State<LoginPage>
               ),
             ),
             SizedBox(
-              height: 200,
+              height: size.height * 0.7,
               child: TabBarView(controller: _tabController, children: [
-                emailTab(),
+                emailTab(context),
                 phoneTab(context),
               ]),
             ),
-            const SizedBox(height: 400, child: FocusedColorWidget())
           ],
         ),
       ),
@@ -95,7 +96,7 @@ class _LoginPageState extends State<LoginPage>
         ],
       );
 
-  Column emailTab() {
+  Column emailTab(BuildContext ctx) {
     return Column(
       children: [
         25.h,
@@ -109,6 +110,16 @@ class _LoginPageState extends State<LoginPage>
           preffixIcon: Icon(Icons.lock),
           suffixIcon: Icon(Icons.visibility_off_outlined),
         ),
+        10.h,
+        Align(
+          alignment: Alignment.centerRight,
+          child: Text("Forgot Password ?",
+              style: ctx.bMedium.copyWith(
+                color: AppColors.secondary,
+              )),
+        ),
+        10.h,
+        GradientButton(onPressed: () {}, text: "Click me")
       ],
     );
   }
