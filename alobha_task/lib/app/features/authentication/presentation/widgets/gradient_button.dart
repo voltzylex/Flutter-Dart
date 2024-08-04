@@ -26,6 +26,7 @@ class GradientButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
         ),
         child: InkWell(
+          splashColor: AppColors.white.withOpacity(0.3),
           borderRadius: BorderRadius.circular(30),
           onTap: onPressed,
           child: Container(
