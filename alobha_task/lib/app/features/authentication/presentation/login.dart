@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import 'package:ios_native_method/app/common/extensions/common_extension.dart';
@@ -7,6 +9,7 @@ import 'package:ios_native_method/app/core/configs/theme/colors.dart';
 import 'package:ios_native_method/app/features/authentication/presentation/widgets/IntlPhoneField/focused_widget.dart';
 import 'package:ios_native_method/app/features/authentication/presentation/widgets/IntlPhoneField/intl_phone_field.dart';
 import 'package:ios_native_method/app/features/authentication/presentation/widgets/gradient_button.dart';
+import 'package:ios_native_method/app/features/authentication/presentation/widgets/gradient_elevated_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -119,7 +122,11 @@ class _LoginPageState extends State<LoginPage>
               )),
         ),
         10.h,
-        GradientButton(onPressed: () {}, text: "Click me")
+        GradientElevatedButton(
+            onPressed: () {
+              log("Button is clicked");
+            },
+            text: "Click me")
       ],
     );
   }
