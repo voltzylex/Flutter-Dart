@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:ios_native_method/app/common/extensions/common_extension.dart';
 import 'package:ios_native_method/app/common/widget/background_widget.dart';
 import 'package:ios_native_method/app/common/widget/custom_textField.dart';
 import 'package:ios_native_method/app/core/configs/theme/colors.dart';
+import 'package:ios_native_method/app/features/authentication/presentation/widgets/IntlPhoneField/focused_widget.dart';
+import 'package:ios_native_method/app/features/authentication/presentation/widgets/IntlPhoneField/intl_phone_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -54,16 +57,59 @@ class _LoginPageState extends State<LoginPage>
                     text: "Email",
                   ),
                   Tab(
-                    text: "Second",
+                    text: "Phone numer",
                   ),
                 ],
               ),
             ),
-            25.h,
-            const CustomTextfield(),
+            SizedBox(
+              height: 200,
+              child: TabBarView(controller: _tabController, children: [
+                emailTab(),
+                phoneTab(context),
+              ]),
+            ),
+            const SizedBox(height: 400, child: FocusedColorWidget())
           ],
         ),
       ),
+    );
+  }
+
+  Column phoneTab(BuildContext context) => Column(
+        children: [
+          10.h,
+          IntlPhoneField(
+            style: const TextStyle(color: Colors.black, fontSize: 20),
+
+            initialCountryCode: 'US', // Default country code
+            showDropdownIcon: false,
+            onChanged: (phone) {
+              print(phone
+                  .completeNumber); // Outputs the complete number with country code
+            },
+            onCountryChanged: (country) {
+              print('Country changed to: ${country.name}');
+            },
+          ),
+        ],
+      );
+
+  Column emailTab() {
+    return Column(
+      children: [
+        25.h,
+        const CustomTextfield(
+          hint: "Email",
+          preffixIcon: Icon(Icons.mail),
+        ),
+        10.h,
+        const CustomTextfield(
+          hint: "Your Password",
+          preffixIcon: Icon(Icons.lock),
+          suffixIcon: Icon(Icons.visibility_off_outlined),
+        ),
+      ],
     );
   }
 }
