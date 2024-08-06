@@ -1,3 +1,6 @@
+import 'dart:developer';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class ShapeView extends StatefulWidget {
@@ -15,12 +18,29 @@ class _ShapeViewState extends State<ShapeView> {
         title: const Text("Shape"),
       ),
       body: Center(
-        child: Container(
-          color: Colors.grey.shade300,
-          child: CustomPaint(
-            size: const Size(300, 400),
-            painter: MasterPainter(),
-          ),
+        child: Column(
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  final locale = Localizations.localeOf(context);
+                  final language = locale.languageCode;
+                  final country = locale.countryCode;
+// final format = NumberFormat.simpleCurrency(locale: locale.toString());
+                  // final currencyName = format.currencyName;
+                  // final currencySymbol = format.currencySymbol;
+                  log("Language $language");
+                  log("country $country");
+                  log("Country Code ${PlatformDispatcher.instance.locale.countryCode}");
+                },
+                child: const Text("data")),
+            Container(
+              color: Colors.grey.shade300,
+              child: CustomPaint(
+                size: const Size(300, 400),
+                painter: MasterPainter(),
+              ),
+            ),
+          ],
         ),
       ),
     );

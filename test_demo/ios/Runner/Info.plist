@@ -4,6 +4,11 @@
 <dict>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>We need access to speech recognition to provide voice control features.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We need access to the microphone to record your voice for speech recognition.</string>
+
 	<key>NSCameraUsageDescription</key>
 	<string>Required for accesing camera</string>
 	<key>NSMicrophoneUsageDescription</key>

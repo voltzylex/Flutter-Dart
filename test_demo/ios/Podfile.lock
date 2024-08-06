@@ -10,16 +10,22 @@ PODS:
     - Flutter
   - permission_handler_apple (9.3.0):
     - Flutter
+  - speech_to_text (0.0.1):
+    - Flutter
+    - Try
+  - Try (2.1.1)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - ivs_broadcaster (from `.symlinks/plugins/ivs_broadcaster/ios`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - speech_to_text (from `.symlinks/plugins/speech_to_text/ios`)
 
 SPEC REPOS:
   trunk:
     - AmazonIVSBroadcast
     - AmazonIVSPlayer
+    - Try
 
 EXTERNAL SOURCES:
   Flutter:
@@ -28,6 +34,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/ivs_broadcaster/ios"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
+  speech_to_text:
+    :path: ".symlinks/plugins/speech_to_text/ios"
 
 SPEC CHECKSUMS:
   AmazonIVSBroadcast: ed142d30deff374da5a5d1d490808a4bff0ca4b9
@@ -35,7 +43,9 @@ SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   ivs_broadcaster: 62250d4880c97fdd7c1ad34905a597a9ce7f9bec
   permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
+  speech_to_text: b43a7d99aef037bd758ed8e45d79bbac035d2dfe
+  Try: 5ef669ae832617b3cee58cb2c6f99fb767a4ff96
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

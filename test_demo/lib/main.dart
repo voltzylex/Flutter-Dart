@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_deeplinking/apps/text_speech/speech.dart';
 import 'package:flutter_deeplinking/custom_video.dart';
 import 'package:flutter_deeplinking/video_player.dart';
 // import 'package:go_router/go_router.dart';
@@ -32,7 +33,7 @@ Future<void> main() async {
   // } on CameraException catch (e) {
   //   logError(e.code, e.description ?? "No description found");
   // }
-  runApp(const GoHomePage());
+  runApp(SpeechApp());
   // runApp(HomePage());
   // runApp(CameraApp());
 }
