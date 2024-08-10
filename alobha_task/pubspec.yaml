@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   country_picker: ^2.0.26
+  get:
   flutter:
     sdk: flutter
 
