@@ -6,9 +6,7 @@ import 'package:ios_native_method/app/common/extensions/common_extension.dart';
 import 'package:ios_native_method/app/common/widget/background_widget.dart';
 import 'package:ios_native_method/app/common/widget/custom_textField.dart';
 import 'package:ios_native_method/app/core/configs/theme/colors.dart';
-import 'package:ios_native_method/app/features/authentication/presentation/widgets/IntlPhoneField/focused_widget.dart';
 import 'package:ios_native_method/app/features/authentication/presentation/widgets/IntlPhoneField/intl_phone_field.dart';
-import 'package:ios_native_method/app/features/authentication/presentation/widgets/gradient_button.dart';
 import 'package:ios_native_method/app/features/authentication/presentation/widgets/gradient_elevated_button.dart';
 
 class LoginPage extends StatefulWidget {
@@ -85,7 +83,7 @@ class _LoginPageState extends State<LoginPage>
           10.h,
           IntlPhoneField(
             style: const TextStyle(color: Colors.black, fontSize: 20),
-
+            focusNode: FocusNode(),
             initialCountryCode: 'US', // Default country code
             showDropdownIcon: false,
             onChanged: (phone) {

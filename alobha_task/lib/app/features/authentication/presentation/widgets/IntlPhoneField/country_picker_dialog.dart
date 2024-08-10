@@ -49,7 +49,7 @@ class CountryPickerDialog extends StatefulWidget {
   final String languageCode;
 
   const CountryPickerDialog({
-    Key? key,
+    super.key,
     required this.searchText,
     required this.languageCode,
     required this.countryList,
@@ -57,7 +57,7 @@ class CountryPickerDialog extends StatefulWidget {
     required this.selectedCountry,
     required this.filteredCountries,
     this.style,
-  }) : super(key: key);
+  });
 
   @override
   _CountryPickerDialogState createState() => _CountryPickerDialogState();

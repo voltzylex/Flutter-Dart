@@ -1,10 +1,10 @@
 library intl_phone_field;
 
 import 'dart:async';
-import 'dart:developer';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ios_native_method/app/features/authentication/presentation/login.dart';
 
 import 'package:ios_native_method/app/features/authentication/presentation/widgets/IntlPhoneField/country_picker_dialog.dart';
 import 'package:ios_native_method/app/features/authentication/presentation/widgets/IntlPhoneField/helpers.dart';
@@ -244,6 +244,7 @@ class IntlPhoneField extends StatefulWidget {
 
   //enable the autofill hint for phone number
   final bool disableAutoFillHints;
+  // color changer for divider
 
   const IntlPhoneField({
     super.key,
@@ -302,7 +303,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
   late Country _selectedCountry;
   late List<Country> filteredCountries;
   late String number;
-
+  final ValueNotifier<Color> _color = ValueNotifier<Color>(Colors.grey);
   String? validatorMessage;
 
   @override
@@ -311,7 +312,17 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
     _countryList = widget.countries ?? countries;
     filteredCountries = _countryList;
     number = widget.initialValue ?? '';
-
+    widget.focusNode?.addListener(
+      () {
+        WidgetsBinding.instance.addPostFrameCallback(
+          (timeStamp) {
+            _color.value = (widget.focusNode?.hasFocus ?? false)
+                ? Theme.of(context).colorScheme.primary
+                : Colors.grey;
+          },
+        );
+      },
+    );
     if (widget.initialCountryCode == null && number.startsWith('+')) {
       number = number.substring(1);
       // parse initial value
@@ -405,11 +416,17 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
           mainAxisSize: MainAxisSize.min,
           children: [
             _buildFlagsButton(),
-            Container(
-              height: 72,
-              width: 2,
-              color: widget.decoration.focusColor ?? Colors.black,
-            ),
+            ValueListenableBuilder(
+                valueListenable: _color,
+                builder: (context, value, _) {
+                  return SizedBox(
+                    // height: 70,
+                    child: VerticalDivider(
+                      color: value,
+                      thickness: 5,
+                    ),
+                  );
+                }),
           ],
         ),
         counterText: !widget.enabled ? '' : null,
