@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ios_native_method/app/common/extensions/common_extension.dart';
 import 'package:ios_native_method/app/features/authentication/presentation/login.dart';
 
 import 'package:ios_native_method/app/features/authentication/presentation/widgets/IntlPhoneField/country_picker_dialog.dart';
@@ -419,14 +420,13 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
             ValueListenableBuilder(
                 valueListenable: _color,
                 builder: (context, value, _) {
-                  return SizedBox(
-                    // height: 70,
-                    child: VerticalDivider(
-                      color: value,
-                      thickness: 5,
-                    ),
+                  return Container(
+                    height: 72,
+                    width: 2,
+                    color: value,
                   );
                 }),
+            5.w,
           ],
         ),
         counterText: !widget.enabled ? '' : null,
