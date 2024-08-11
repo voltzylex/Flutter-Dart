@@ -10,12 +10,12 @@ class BottomNavBarPage extends StatefulWidget {
 
 class _BottomNavBarPageState extends State<BottomNavBarPage> {
   late List<Widget> pages;
-  ValueNotifier<int> _currentIndex = ValueNotifier(0);
+  final ValueNotifier<int> _currentIndex = ValueNotifier(0);
   @override
   void initState() {
     super.initState();
     pages = [
-      HomePage(),
+      const HomePage(),
       navBarIcons(Icons.favorite),
       navBarIcons(Icons.notifications),
       navBarIcons(Icons.person),
@@ -38,7 +38,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
           unselectedItemColor: Colors.black45,
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          items: [
+          items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
             BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
             BottomNavigationBarItem(icon: Icon(Icons.notifications), label: ""),
