@@ -66,12 +66,23 @@ class _LoginPageState extends State<LoginPage>
               ),
             ),
             SizedBox(
-              height: size.height * 0.7,
+              height: size.height * 0.3,
               child: TabBarView(controller: _tabController, children: [
                 emailTab(context),
                 phoneTab(context),
               ]),
             ),
+            Row(
+              children: [
+                Expanded(child: Divider()),
+                Text(
+                  " Or with email",
+                  style: context.tTheme.bodyMedium
+                      ?.copyWith(color: AppColors.grey),
+                ),
+                Expanded(child: Divider()),
+              ],
+            )
           ],
         ),
       ),
@@ -94,6 +105,12 @@ class _LoginPageState extends State<LoginPage>
               print('Country changed to: ${country.name}');
             },
           ),
+          30.h,
+          GradientElevatedButton(
+              onPressed: () {
+                log("Button is clicked");
+              },
+              text: "Click me"),
         ],
       );
 
