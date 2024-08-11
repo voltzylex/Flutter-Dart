@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_shop_ui/app/common/extensions/common_extension.dart';
+import 'package:plant_shop_ui/app/features/home/pages/widgets/shop_category_wid.dart';
 import 'package:plant_shop_ui/app/features/home/pages/widgets/welcome_wid.dart';
 
 class HomePage extends StatelessWidget {
@@ -21,6 +22,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           searchField(),
+          const ColoredBox(color: Colors.red, child: ShopCategoryWid()),
         ],
       ).pad(const EdgeInsets.symmetric(horizontal: 10)),
     );
