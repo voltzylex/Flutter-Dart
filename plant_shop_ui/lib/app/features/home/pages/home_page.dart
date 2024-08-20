@@ -22,7 +22,9 @@ class HomePage extends StatelessWidget {
             ),
           ),
           searchField(),
-          const ColoredBox(color: Colors.red, child: ShopCategoryWid()),
+          const ShopCategoryWid(),
+          20.h,
+          
         ],
       ).pad(const EdgeInsets.symmetric(horizontal: 10)),
     );
