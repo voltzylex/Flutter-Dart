@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart' as p;
 import 'package:to_do_application/view/hive_page/view/hive_task_page.dart';
 import 'package:to_do_application/view/home_page.dart';
 import 'package:to_do_application/view/sqf_page/view/sqf_taskpage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final dir = await getApplicationDocumentsDirectory();
+  final dir = await p.getApplicationDocumentsDirectory();
   Hive.defaultDirectory = dir.path;
   runApp(const MyApp());
 }

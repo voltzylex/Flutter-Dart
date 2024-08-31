@@ -4,10 +4,15 @@ PODS:
   - AmazonIVSBroadcast/Core (1.19.0)
   - AmazonIVSPlayer (1.29.0)
   - Flutter (1.0.0)
+  - isar_flutter_libs (1.0.0):
+    - Flutter
   - ivs_broadcaster (0.0.1):
     - AmazonIVSBroadcast (~> 1.19.0)
     - AmazonIVSPlayer (~> 1.29.0)
     - Flutter
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
   - permission_handler_apple (9.3.0):
     - Flutter
   - sqflite (0.0.3):
@@ -16,7 +21,9 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
+  - isar_flutter_libs (from `.symlinks/plugins/isar_flutter_libs/ios`)
   - ivs_broadcaster (from `.symlinks/plugins/ivs_broadcaster/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/darwin`)
 
@@ -28,8 +35,12 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
+  isar_flutter_libs:
+    :path: ".symlinks/plugins/isar_flutter_libs/ios"
   ivs_broadcaster:
     :path: ".symlinks/plugins/ivs_broadcaster/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
   sqflite:
@@ -39,7 +50,9 @@ SPEC CHECKSUMS:
   AmazonIVSBroadcast: ed142d30deff374da5a5d1d490808a4bff0ca4b9
   AmazonIVSPlayer: d723049ee0d9b73f78c21a21fc61e2399e1c2650
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  isar_flutter_libs: b69f437aeab9c521821c3f376198c4371fa21073
   ivs_broadcaster: 62250d4880c97fdd7c1ad34905a597a9ce7f9bec
+  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
   sqflite: 673a0e54cc04b7d6dba8d24fb8095b31c3a99eec
 
