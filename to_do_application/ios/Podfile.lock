@@ -1,0 +1,48 @@
+PODS:
+  - AmazonIVSBroadcast (1.19.0):
+    - AmazonIVSBroadcast/Core (= 1.19.0)
+  - AmazonIVSBroadcast/Core (1.19.0)
+  - AmazonIVSPlayer (1.29.0)
+  - Flutter (1.0.0)
+  - ivs_broadcaster (0.0.1):
+    - AmazonIVSBroadcast (~> 1.19.0)
+    - AmazonIVSPlayer (~> 1.29.0)
+    - Flutter
+  - permission_handler_apple (9.3.0):
+    - Flutter
+  - sqflite (0.0.3):
+    - Flutter
+    - FlutterMacOS
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - ivs_broadcaster (from `.symlinks/plugins/ivs_broadcaster/ios`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - sqflite (from `.symlinks/plugins/sqflite/darwin`)
+
+SPEC REPOS:
+  trunk:
+    - AmazonIVSBroadcast
+    - AmazonIVSPlayer
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  ivs_broadcaster:
+    :path: ".symlinks/plugins/ivs_broadcaster/ios"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+  sqflite:
+    :path: ".symlinks/plugins/sqflite/darwin"
+
+SPEC CHECKSUMS:
+  AmazonIVSBroadcast: ed142d30deff374da5a5d1d490808a4bff0ca4b9
+  AmazonIVSPlayer: d723049ee0d9b73f78c21a21fc61e2399e1c2650
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  ivs_broadcaster: 62250d4880c97fdd7c1ad34905a597a9ce7f9bec
+  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
+  sqflite: 673a0e54cc04b7d6dba8d24fb8095b31c3a99eec
+
+PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
+
+COCOAPODS: 1.15.2

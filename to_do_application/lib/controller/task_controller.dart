@@ -11,7 +11,7 @@ class TaskController {
       updatedTasks
           .add(Task(title: title, timestamp: DateTime.now().microsecond));
       tasks.value = updatedTasks;
-
+    
       controller.clear();
     } else {
       const snackBar = SnackBar(
